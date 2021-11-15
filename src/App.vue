@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <header id="siteHeader" class="d-flex align-items-center">
-      <img
-        id="logo_spotify"
-        src="./assets/img/Spotify_logo_without_text.svg"
-        class="ms-4"
-        alt="Logo"
-      />
-    </header>
+    <SiteHeader />
     <!-- /#siteHeader -->
-    <main id="siteMain"></main>
+    <SiteMain />
+
     <!-- /#siteMain -->
   </div>
 </template>
 
 <script>
+import SiteHeader from "@/components/SiteHeader.vue";
+import SiteMain from "@/components/SiteMain.vue";
 /* import axios from "axios"; */
 export default {
   name: "App",
+  components: {
+    SiteHeader,
+    SiteMain,
+  },
   data() {
     return {
       characters: [],
@@ -40,14 +40,7 @@ export default {
 <style lang="scss">
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./assets/scss/color.scss";
-#siteHeader {
-  background-color: $background-color-header;
-  height: 80px;
-  width: 100vw;
-  #logo_spotify {
-    height: 50px;
-  }
-}
+
 #siteMain {
   height: 700px;
   width: 100vw;
