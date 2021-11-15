@@ -1,13 +1,26 @@
 <template>
-  <div id="app">
-    <div class="square bg-dark"></div>
-  </div>
+  <div id="app"></div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "App",
-  components: {},
+  data() {
+    return {
+      characters: [],
+    };
+  },
+  mounted() {
+    axios
+      .get("https://flynn.boolean.careers/exercises/api/array/music")
+      .then((r) => {
+        console.log(r.data);
+      })
+      .catch((e) => {
+        console.log(e, "OPS!!");
+      });
+  },
 };
 </script>
 
@@ -21,8 +34,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 } */
-.square {
-  height: 100px;
-  width: 100px;
-}
 </style>
