@@ -1,11 +1,21 @@
 <template>
   <div id="app">
-    <h1 class="title">Hello</h1>
+    <header id="siteHeader" class="d-flex align-items-center">
+      <img
+        id="logo_spotify"
+        src="./assets/img/Spotify_logo_without_text.svg"
+        class="ms-4"
+        alt="Logo"
+      />
+    </header>
+    <!-- /#siteHeader -->
+    <main id="siteMain"></main>
+    <!-- /#siteMain -->
   </div>
 </template>
 
 <script>
-import axios from "axios";
+/* import axios from "axios"; */
 export default {
   name: "App",
   data() {
@@ -13,7 +23,7 @@ export default {
       characters: [],
     };
   },
-  mounted() {
+  /* mounted() {
     axios
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((r) => {
@@ -22,20 +32,25 @@ export default {
       .catch((e) => {
         console.log(e, "OPS!!");
       });
-  },
+  }, */
 };
 </script>
+
 
 <style lang="scss">
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./assets/scss/color.scss";
-
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+#siteHeader {
+  background-color: $background-color-header;
+  height: 80px;
+  width: 100vw;
+  #logo_spotify {
+    height: 50px;
+  }
+}
+#siteMain {
+  height: 700px;
+  width: 100vw;
+  background-color: $background-color-main;
+}
 </style>
