@@ -1,6 +1,6 @@
 <template>
   <div class="cards_disk">
-    <div class="row gx-5 my-5 d-flex justify-content-center">
+    <div class="row gx-5 my-5 d-flex justify-content-center" v-if="!loading">
       <div
         class="col-md-2 text-center card_disk my-3"
         v-for="disk in disks"
@@ -16,6 +16,9 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      <h2 class="loading text-light">Loading...</h2>
+    </div>
   </div>
 </template>
 
@@ -27,10 +30,11 @@ export default {
     return {
       disks: [],
       API_URL: "https://flynn.boolean.careers/exercises/api/array/music",
+      loading: true,
     };
   },
   mounted() {
-    this.callApi();
+    setTimeout(this.callApi, 1500);
   },
   methods: {
     callApi() {
@@ -38,6 +42,7 @@ export default {
         .get(this.API_URL)
         .then((r) => {
           this.disks = r.data.response;
+          this.loading = false;
         })
         .catch((e) => {
           console.log(e, "ERROR!");
