@@ -17,11 +17,6 @@ export default {
     SiteHeader,
     SiteMain,
   },
-  data() {
-    return {
-      characters: [],
-    };
-  },
 };
 </script>
 
@@ -29,10 +24,4 @@ export default {
 <style lang="scss">
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./assets/scss/color.scss";
-
-#siteMain {
-  height: 700px;
-  width: 100vw;
-  background-color: $background-color-main;
-}
 </style>
