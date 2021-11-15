@@ -3,7 +3,6 @@
     <SiteHeader />
     <!-- /#siteHeader -->
     <SiteMain />
-
     <!-- /#siteMain -->
   </div>
 </template>
@@ -11,7 +10,7 @@
 <script>
 import SiteHeader from "@/components/SiteHeader.vue";
 import SiteMain from "@/components/SiteMain.vue";
-/* import axios from "axios"; */
+
 export default {
   name: "App",
   components: {
@@ -23,16 +22,6 @@ export default {
       characters: [],
     };
   },
-  /* mounted() {
-    axios
-      .get("https://flynn.boolean.careers/exercises/api/array/music")
-      .then((r) => {
-        console.log(r.data);
-      })
-      .catch((e) => {
-        console.log(e, "OPS!!");
-      });
-  }, */
 };
 </script>
 
