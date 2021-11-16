@@ -1,9 +1,10 @@
 <template>
   <div class="cards_disk">
+    <SelectGenre :selectValue="searchValue" @filter_disk="searchDisk" />
     <div class="row gx-5 my-5 d-flex justify-content-center" v-if="!loading">
       <div
         class="col-md-2 text-center card_disk my-3"
-        v-for="disk in disks"
+        v-for="disk in filterDisks"
         :key="disk.title"
       >
         <div class="card rounded-0 p-4">
@@ -24,13 +25,18 @@
 
 <script>
 import axios from "axios";
+import SelectGenre from "./SelectGenre.vue";
 
 export default {
+  components: {
+    SelectGenre,
+  },
   data() {
     return {
       disks: [],
       API_URL: "https://flynn.boolean.careers/exercises/api/array/music",
       loading: true,
+      searchValue: "",
     };
   },
   mounted() {
@@ -47,6 +53,20 @@ export default {
         .catch((e) => {
           console.log(e, "ERROR!");
         });
+    },
+    searchDisk(value) {
+      this.searchValue = value;
+    },
+  },
+  computed: {
+    filterDisks() {
+      if (this.searchValue === "All") {
+        return this.disks;
+      }
+      const filterDisk = this.disks.filter((disk) =>
+        disk.genre.includes(this.searchValue)
+      );
+      return filterDisk;
     },
   },
 };

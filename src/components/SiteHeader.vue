@@ -1,5 +1,3 @@
-
-
 <template>
   <header
     id="siteHeader"
@@ -11,17 +9,11 @@
       class="ms-4"
       alt="Logo"
     />
-    <Select />
   </header>
 </template>
 
 <script>
-import Select from "./SelectGenre.vue";
-export default {
-  components: {
-    Select,
-  },
-};
+export default {};
 </script>
 
 <style lang="scss">
