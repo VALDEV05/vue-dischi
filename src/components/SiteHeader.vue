@@ -1,13 +1,24 @@
 
 
 <template>
-  <header id="siteHeader" class="d-flex align-items-center">
+  <header
+    id="siteHeader"
+    class="d-flex align-items-center justify-content-between"
+  >
     <img
       id="logo_spotify"
       src="../assets/img/Spotify_logo_without_text.svg"
       class="ms-4"
       alt="Logo"
     />
+    <select id="select" class="form-select me-5">
+      <option selected>Select genre</option>
+      <option value="all">All</option>
+      <option value="pop">Pop</option>
+      <option value="rock">Rock</option>
+      <option value="jazz">Jazz</option>
+      <option value="metal">Metal</option>
+    </select>
   </header>
 </template>
 
@@ -23,6 +34,10 @@ export default {};
   width: 100vw;
   #logo_spotify {
     height: 50px;
+  }
+  #select {
+    background-color: $brand-color-main !important;
+    width: 200px;
   }
 }
 </style>
